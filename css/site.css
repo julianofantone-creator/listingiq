@@ -1,4 +1,4 @@
-/* Listing IQ — site styles */
+/* Divine Listings — site styles */
 :root {
   --bg: #0d0f12;
   --panel: #14171c;
@@ -299,9 +299,115 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 20px; fl
   .frame, .ba-pair figure, .gal .shot, .twin { transition: none; }
 }
 
+/* ==========================================================
+   AURA PASS (2026-08-16) — pristine/premium layer, overrides only
+   ========================================================== */
+
+/* deeper, layered canvas: warm breath up top, cool depth below, film grain */
+:root {
+  --champagne: #f3e3bd;
+  --gold-deep: #b8842e;
+}
+body {
+  background:
+    radial-gradient(1400px 700px at 50% -10%, rgba(217, 164, 65, 0.075) 0%, transparent 60%),
+    radial-gradient(1100px 800px at 85% 115%, rgba(58, 72, 96, 0.16) 0%, transparent 55%),
+    radial-gradient(900px 600px at -10% 70%, rgba(217, 164, 65, 0.04) 0%, transparent 50%),
+    var(--bg);
+  background-attachment: fixed;
+}
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 90; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.05; mix-blend-mode: overlay;
+}
+
+/* lettering aura — headlines set in champagne metal, soft warm halo */
+h1, h2 {
+  background: linear-gradient(180deg, #fffdf6 0%, var(--ink) 52%, var(--champagne) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: var(--champagne);
+  filter: drop-shadow(0 1px 18px rgba(217, 164, 65, 0.12));
+}
+.hero h1 { filter: drop-shadow(0 2px 26px rgba(217, 164, 65, 0.2)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5)); }
+
+/* kickers become jewelry: gradient text + leading hairline */
+.kicker, .card .tag, .prop-head .tag {
+  background: linear-gradient(90deg, var(--gold-soft) 0%, var(--gold) 55%, var(--gold-deep) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: var(--gold);
+}
+.kicker::before {
+  content: ''; display: inline-block; vertical-align: middle;
+  width: 30px; height: 1px; margin-right: 12px; margin-top: -2px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+/* the logo's accent word glints */
+.logo b {
+  background: linear-gradient(120deg, var(--gold-soft) 0%, var(--gold) 45%, var(--champagne) 80%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* gold becomes metal: gradient buttons with a real glow */
+.btn.gold, nav.main a.cta {
+  background: linear-gradient(135deg, var(--champagne) 0%, var(--gold) 45%, var(--gold-deep) 100%);
+  box-shadow: 0 2px 18px rgba(217, 164, 65, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+.btn.gold:hover, nav.main a.cta:hover {
+  background: linear-gradient(135deg, var(--champagne) 0%, var(--gold-soft) 45%, var(--gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(217, 164, 65, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  filter: saturate(1.05);
+}
+.btn.ghost { transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease; }
+.btn.ghost:hover { border-color: var(--gold-soft); color: var(--champagne); box-shadow: 0 0 24px rgba(217, 164, 65, 0.14); transform: translateY(-2px); }
+
+/* pricing numbers in champagne metal */
+.price .amount {
+  background: linear-gradient(180deg, #fffdf6 10%, var(--champagne) 60%, var(--gold-soft) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 12px rgba(217, 164, 65, 0.18));
+}
+.price li::before { content: '✦'; color: var(--gold); font-size: 0.7em; top: 9px; }
+
+/* panels get a lit top edge + richer depth */
+.card, .step, .price, .buy-panel, .frame, .compliance {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 18px 44px -18px rgba(0, 0, 0, 0.55);
+}
+.price.feature {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 22px 60px -20px rgba(0, 0, 0, 0.6), 0 0 44px rgba(217, 164, 65, 0.09);
+}
+.buy-panel { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 50px -18px rgba(0, 0, 0, 0.6), 0 0 36px rgba(217, 164, 65, 0.08); }
+
+/* header: hairline of light under the glass */
+header.site { border-bottom: 1px solid rgba(217, 164, 65, 0.16); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03), 0 12px 30px -18px rgba(0, 0, 0, 0.6); }
+
+/* imagery: a touch more life at rest */
+.hero .bg { filter: saturate(1.06) contrast(1.03); }
+.frame img, .ba-pair img { filter: saturate(1.03); }
+
+/* footer floats on a gold hairline */
+footer.site { border-top: 1px solid rgba(217, 164, 65, 0.18); }
+
+/* the small pristine details */
+::selection { background: rgba(217, 164, 65, 0.85); color: #171203; }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #3a3325, var(--gold-deep)); border-radius: 99px; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); border: 3px solid var(--bg); }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.gold, .btn.ghost, nav.main a.cta { transition: none; }
+}
+
 /* ---------- protection ---------- */
 .protected, .protected * { user-select: none; -webkit-user-select: none; }
 @media print {
   .frame img, .ba-pair, .hero .bg, .card .thumb { display: none !important; visibility: hidden !important; }
-  body::after { content: 'Listing IQ — previews are view-only. Full-resolution files are delivered on purchase.'; }
+  body::after { content: 'Divine Listings — previews are view-only. Full-resolution files are delivered on purchase.'; }
 }
