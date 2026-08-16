@@ -5,7 +5,7 @@
 // the baked-in watermark + watered-down resolution are the real protection —
 // the paid product is the clean full-res file, which never touches this site.
 document.addEventListener('contextmenu', function (e) {
-  if (e.target.closest('.frame, .ba-slider, .thumb, .hero')) e.preventDefault();
+  if (e.target.closest('.frame, .ba-pair, .thumb, .hero')) e.preventDefault();
 });
 document.addEventListener('dragstart', function (e) {
   if (e.target.tagName === 'IMG') e.preventDefault();
@@ -38,27 +38,3 @@ document.addEventListener('keydown', function (e) {
     }
   });
 })();
-
-// ---------- before/after slider ----------
-document.querySelectorAll('.ba-slider').forEach(function (el) {
-  var afterWrap = el.querySelector('.after-wrap');
-  var handle = el.querySelector('.handle');
-  function setPos(clientX) {
-    var r = el.getBoundingClientRect();
-    var pct = Math.min(0.98, Math.max(0.02, (clientX - r.left) / r.width));
-    afterWrap.style.clipPath = 'inset(0 0 0 ' + (pct * 100) + '%)';
-    handle.style.left = (pct * 100) + '%';
-  }
-  function onMove(e) { setPos(e.touches ? e.touches[0].clientX : e.clientX); }
-  el.addEventListener('mousedown', function (e) {
-    onMove(e);
-    function up() {
-      document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseup', up);
-    }
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', up);
-  });
-  el.addEventListener('touchstart', onMove, { passive: true });
-  el.addEventListener('touchmove', onMove, { passive: true });
-});

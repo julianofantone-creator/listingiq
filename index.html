@@ -22,7 +22,7 @@ body{background:#1a1c1f}
 .hero-min .kicker{margin-bottom:14px}
 .hero-min h1{margin:0 auto;max-width:19ch}
 .hero-min p.sub{margin:18px auto 0;max-width:54ch;font-size:1.05rem;opacity:.92}
-.hero-demo{margin:46px auto 6px;max-width:920px;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.hero-demo{margin:46px auto 6px;max-width:1000px}
 .hero-demo-hint{text-align:center;color:var(--muted);font-size:.85rem;margin-top:12px;letter-spacing:.05em}
 .twins{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:42px 0 10px}
 @media(max-width:760px){.twins{grid-template-columns:1fr}}
@@ -63,14 +63,11 @@ body{background:#1a1c1f}
 
 <section class="tight" style="padding-top:10px">
   <div class="wrap">
-    <div class="ba-slider hero-demo">
-      <img src="assets/reno-front-before.jpg" alt="The listing today">
-      <div class="after-wrap"><img src="assets/reno-front.jpg" alt="Renovation concept — same house, same bones"></div>
-      <div class="handle"></div>
-      <div class="lbl before">Today</div>
-      <div class="lbl after">The vision</div>
+    <div class="ba-pair hero-demo">
+      <figure><img src="assets/reno-front-before.jpg" alt="The listing today"><figcaption>Today</figcaption></figure>
+      <figure class="vision"><img src="assets/reno-front.jpg" alt="Renovation concept — same house, same bones"><figcaption>The vision</figcaption></figure>
     </div>
-    <div class="hero-demo-hint">DRAG THE SLIDER &mdash; same house, same angle, same window count. That's the product.</div>
+    <div class="hero-demo-hint">Same house, same angle, same window count. That's the product.</div>
   </div>
 </section>
 

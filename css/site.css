@@ -222,37 +222,22 @@ h2 {
 }
 .delivery-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 
-/* before/after slider */
-.ba-slider {
+/* before/after — simple side-by-side pair */
+.ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .ba-pair { grid-template-columns: 1fr; } }
+.ba-pair figure {
   position: relative; border-radius: var(--radius); overflow: hidden;
-  border: 1px solid var(--line); user-select: none; touch-action: none;
+  border: 1px solid var(--line); background: var(--panel);
+  box-shadow: 0 14px 50px rgba(0,0,0,.4);
 }
-.ba-slider img { width: 100%; pointer-events: none; -webkit-user-drag: none; display: block; }
-.ba-slider .after-wrap {
-  position: absolute; inset: 0; overflow: hidden;
-  clip-path: inset(0 0 0 50%);
-}
-.ba-slider .after-wrap img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; }
-.ba-slider .handle {
-  position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
-  background: var(--gold); z-index: 3; transform: translateX(-1px);
-}
-.ba-slider .handle::after {
-  content: '⟷'; position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--gold); color: #171203;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; font-weight: bold;
-}
-.ba-slider .lbl {
-  position: absolute; top: 14px; z-index: 2;
+.ba-pair img { width: 100%; display: block; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+.ba-pair figcaption {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
   font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
   background: rgba(13,15,18,0.75); color: var(--ink);
   padding: 6px 12px; border-radius: 999px;
 }
-.ba-slider .lbl.before { left: 14px; }
-.ba-slider .lbl.after { right: 14px; }
+.ba-pair figure.vision figcaption { background: var(--gold); color: #171203; }
 
 /* ---------- footer ---------- */
 footer.site {
@@ -264,6 +249,6 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 20px; fl
 /* ---------- protection ---------- */
 .protected, .protected * { user-select: none; -webkit-user-select: none; }
 @media print {
-  .frame img, .ba-slider, .hero .bg, .card .thumb { display: none !important; visibility: hidden !important; }
+  .frame img, .ba-pair, .hero .bg, .card .thumb { display: none !important; visibility: hidden !important; }
   body::after { content: 'FLIP VISION — previews are view-only. Full-resolution files are delivered on purchase.'; }
 }
