@@ -14,9 +14,10 @@ Static site, zero dependencies. Built 2026-08-14. Open `index.html` in a browser
 3. Until then, buy buttons automatically fall back to a prefilled order email — the site works TODAY.
 4. Delivery stays MANUAL (per THE ONE RULE): payment notification → email the clean files. Same-day promise, automate later.
 
-## Deploy (10 min, free)
-- Netlify: drag the `site` folder onto app.netlify.com/drop → live URL instantly. Or Vercel/Cloudflare Pages.
-- Buy a domain (e.g. flipvision.co) and point it. Do this BEFORE the 25 pitches go out so the email domain isn't a random gmail-only operation.
+## Deploy — LIVE since 2026-08-15
+- **URL: https://julianofantone-creator.github.io/flipvision/** — GitHub Pages, repo `julianofantone-creator/flipvision` (public; only watermarked previews live here, so that's fine).
+- Redeploy after any edit: `git add -A ; git commit -m "..." ; git push` from this folder. git.exe is NOT on PATH — use `C:\Users\julia\AppData\Local\GitHubDesktop\app-3.5.5\resources\app\git\cmd\git.exe` or add that dir to PATH first.
+- Buy a domain (e.g. flipvision.co) and attach in repo Settings → Pages → Custom domain. Do this BEFORE the 25 pitches go out.
 
 ## Adding a new project (per pitch)
 1. Make web assets from the WATERMARKED files only: resize to ~1600px JPEG (script: scratchpad `make_web_assets.ps1` pattern).
