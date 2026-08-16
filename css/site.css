@@ -273,7 +273,7 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 20px; fl
 }
 .frame:hover img, .ba-pair figure:hover img, .gal .shot:hover img, .card .thumb:hover img {
   transform: scale(1.07) translateY(-1.2%);
-  filter: brightness(1.07) saturate(1.1);
+  filter: brightness(1.02) contrast(1.09) saturate(1.12);
 }
 
 /* hover: one-shot light sweep across the image */
