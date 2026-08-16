@@ -38,3 +38,20 @@ document.addEventListener('keydown', function (e) {
     }
   });
 })();
+
+// ---------- scroll reveal: images & cards rise into view ----------
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.frame, .ba-pair figure, .gal .shot, .card, .twin, .price, .step');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (el, i) {
+    el.classList.add('reveal');
+    el.style.animationDelay = ((i % 3) * 110) + 'ms'; // light stagger so rows cascade
+    io.observe(el);
+  });
+})();

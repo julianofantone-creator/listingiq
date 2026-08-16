@@ -246,6 +246,59 @@ footer.site {
 }
 footer.site .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
+/* ---------- living images ---------- */
+/* scroll reveal (class added by JS; keyframes use `backwards` fill so hover
+   transforms still work after the entrance finishes) */
+.reveal { opacity: 0; }
+.reveal.in { opacity: 1; animation: rise 0.9s cubic-bezier(0.19, 1, 0.22, 1) backwards; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* hover: containers lift with a gold glow */
+.frame, .ba-pair figure, .gal .shot {
+  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+}
+.frame:hover, .ba-pair figure:hover, .gal .shot:hover {
+  transform: translateY(-6px);
+  border-color: rgba(217, 164, 65, 0.55);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(217, 164, 65, 0.25), 0 12px 44px rgba(217, 164, 65, 0.14);
+}
+
+/* hover: the photo itself slowly drifts in — long ease-out so it feels alive, quick settle on leave */
+.frame img, .ba-pair img, .gal .shot img, .card .thumb img {
+  transition: transform 5s cubic-bezier(0.19, 1, 0.22, 1), filter 1.2s ease;
+  will-change: transform;
+}
+.frame:hover img, .ba-pair figure:hover img, .gal .shot:hover img, .card .thumb:hover img {
+  transform: scale(1.07) translateY(-1.2%);
+  filter: brightness(1.07) saturate(1.1);
+}
+
+/* hover: one-shot light sweep across the image */
+.frame, .ba-pair figure, .gal .shot, .twin { overflow: hidden; }
+.frame::after, .ba-pair figure::after, .gal .shot::after, .twin::after {
+  content: ''; position: absolute; top: -10%; bottom: -10%; left: -80%; width: 45%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.10) 40%, rgba(255,255,255,0.26) 50%, rgba(255,255,255,0.10) 60%, transparent 100%);
+  transform: skewX(-18deg); z-index: 4; pointer-events: none; opacity: 0;
+}
+.frame:hover::after, .ba-pair figure:hover::after, .gal .shot:hover::after, .twin:hover::after {
+  animation: shine 1.1s ease forwards;
+}
+@keyframes shine {
+  0%   { left: -80%; opacity: 1; }
+  100% { left: 135%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; }
+  .reveal.in { animation: none; }
+  .frame:hover::after, .ba-pair figure:hover::after, .gal .shot:hover::after, .twin:hover::after { animation: none; }
+  .frame img, .ba-pair img, .gal .shot img, .card .thumb img,
+  .frame, .ba-pair figure, .gal .shot, .twin { transition: none; }
+}
+
 /* ---------- protection ---------- */
 .protected, .protected * { user-select: none; -webkit-user-select: none; }
 @media print {
