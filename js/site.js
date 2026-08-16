@@ -1,4 +1,4 @@
-// FLIP VISION — shared site behavior
+// Listing IQ — shared site behavior
 
 // ---------- image deterrents ----------
 // Honest note: nothing can stop an OS-level screenshot. These deterrents plus
@@ -31,7 +31,7 @@ document.addEventListener('keydown', function (e) {
     } else {
       var subject = encodeURIComponent('ORDER — ' + propName + ' — ' + (btn.getAttribute('data-label') || sku));
       var body = encodeURIComponent(
-        'Hi FLIP VISION,\n\nI want to purchase: ' + (btn.getAttribute('data-label') || sku) +
+        'Hi Listing IQ,\n\nI want to purchase: ' + (btn.getAttribute('data-label') || sku) +
         '\nProperty: ' + propName +
         '\n\nName:\nBrokerage:\nPhone:\n');
       btn.setAttribute('href', 'mailto:julianogfantone@gmail.com?subject=' + subject + '&body=' + body);

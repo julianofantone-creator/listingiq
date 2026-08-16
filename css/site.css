@@ -1,4 +1,4 @@
-/* FLIP VISION — site styles */
+/* Listing IQ — site styles */
 :root {
   --bg: #0d0f12;
   --panel: #14171c;
@@ -250,5 +250,5 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 20px; fl
 .protected, .protected * { user-select: none; -webkit-user-select: none; }
 @media print {
   .frame img, .ba-pair, .hero .bg, .card .thumb { display: none !important; visibility: hidden !important; }
-  body::after { content: 'FLIP VISION — previews are view-only. Full-resolution files are delivered on purchase.'; }
+  body::after { content: 'Listing IQ — previews are view-only. Full-resolution files are delivered on purchase.'; }
 }
