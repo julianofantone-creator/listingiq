@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery — Divine Listings</title>
+<meta name="description" content="Real listings, re-imagined. Before-and-afters for all three tiers — Lights-On Glow-Up, Artist's Concept Reno, The Full Makeover — plus listing films made from a single photo.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23d9a441'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='28' font-weight='bold' text-anchor='middle' fill='%230d0f12'%3EDL%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,13 +12,80 @@
 <link rel="stylesheet" href="css/site.css">
 <style>
 body{background:#0b0c0e}
-.gal-head{padding:64px 0 8px;text-align:center}
+
+/* ---------- page head ---------- */
+.gal-head{padding:64px 0 6px;text-align:center}
 .gal-head h1{margin:0 auto;font-size:clamp(1.9rem,4vw,2.8rem)}
 .gal-head h1 span{color:var(--muted);font-weight:400}
-.gal-wrap{max-width:1320px;margin:0 auto;padding:0 24px}
-.gal{display:flex;flex-direction:column;gap:44px;padding:40px 0 90px}
-.gal .shot{border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.09);box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 30px 60px -20px rgba(0,0,0,.8)}
-.gal .shot img{width:100%;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none;image-rendering:-webkit-optimize-contrast;filter:contrast(1.06) saturate(1.07)}
+.gal-head p.lead{margin:14px auto 0;max-width:56ch;color:var(--muted);font-size:1rem}
+
+/* ---------- tab bar ---------- */
+.tabbar-wrap{position:sticky;top:64px;z-index:40;background:rgba(11,12,14,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(217,164,65,.14);margin-top:28px}
+.tabbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:14px 24px;max-width:1320px;margin:0 auto}
+.tab{
+  appearance:none;background:transparent;cursor:pointer;font-family:var(--sans);
+  border:1px solid var(--line);border-radius:999px;padding:9px 20px;
+  color:var(--muted);line-height:1.25;text-align:center;
+  transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.tab .t-kick{display:block;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+.tab .t-name{display:block;font-size:.92rem;font-weight:500;letter-spacing:.02em}
+.tab:hover{color:var(--ink);border-color:rgba(217,164,65,.45);transform:translateY(-1px)}
+.tab[aria-selected="true"]{
+  color:#171203;border-color:transparent;
+  background:linear-gradient(135deg,var(--champagne) 0%,var(--gold) 45%,var(--gold-deep) 100%);
+  box-shadow:0 2px 18px rgba(217,164,65,.28),inset 0 1px 0 rgba(255,255,255,.45);
+}
+.tab[aria-selected="true"] .t-kick{opacity:.7}
+.tab:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+
+/* ---------- panels ---------- */
+.gal-wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.panel[hidden]{display:none}
+.panel-head{text-align:center;padding:44px 0 6px;max-width:60ch;margin:0 auto}
+.panel-head h2{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.panel-head p{color:var(--muted);margin-top:10px;font-size:.97rem}
+.panel-head .pill{
+  display:inline-block;margin-bottom:12px;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(217,164,65,.35);border-radius:999px;padding:5px 14px;
+}
+
+/* ---------- items ---------- */
+.stack{display:flex;flex-direction:column;gap:40px;padding:34px 0 20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;padding:34px 0 20px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.stack.films{max-width:880px;margin:0 auto}
+
+.item{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 30px 60px -22px rgba(0,0,0,.8);
+  transition:transform .45s ease,box-shadow .45s ease,border-color .45s ease}
+.item:hover{transform:translateY(-5px);border-color:rgba(217,164,65,.5);
+  box-shadow:0 26px 70px rgba(0,0,0,.55),0 0 0 1px rgba(217,164,65,.22),0 12px 44px rgba(217,164,65,.12)}
+.item .shot{position:relative;overflow:hidden;line-height:0}
+.item .shot img{width:100%;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none;
+  image-rendering:-webkit-optimize-contrast;filter:contrast(1.05) saturate(1.06);
+  transition:transform 5s cubic-bezier(.19,1,.22,1),filter 1.2s ease}
+.item:hover .shot img{transform:scale(1.045);filter:brightness(1.02) contrast(1.08) saturate(1.1)}
+.item .shot video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000}
+
+/* the caption — the whole point: you always know what you're looking at */
+.item .cap{padding:18px 22px 20px;border-top:1px solid var(--line)}
+.item .cap h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;line-height:1.3}
+.item .cap p{color:var(--muted);font-size:.92rem;margin-top:7px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.meta span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.meta span.hot{color:var(--gold-soft);border-color:rgba(217,164,65,.4)}
+
+/* the "made with N pictures" line under every film — loud enough to register */
+.madewith{display:flex;align-items:center;gap:9px;margin-top:2px;
+  font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft)}
+.madewith::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+
+/* ---------- closer ---------- */
+.closer{text-align:center;padding:34px 0 96px}
+.closer .fine{margin-top:16px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(154,161,171,.6)}
 </style>
 </head>
 <body class="protected">
@@ -26,7 +94,9 @@ body{background:#0b0c0e}
   <div class="wrap">
     <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none">Divine<b>Listings</b></a></div>
     <nav class="main">
+      <a href="index.html#services">Services</a>
       <a href="gallery.html">Gallery</a>
+      <a href="index.html#pricing">Pricing</a>
       <a href="testimonials.html">Testimonials</a>
       <a href="index.html#contact" class="cta">Get a free sample</a>
     </nav>
@@ -35,19 +105,201 @@ body{background:#0b0c0e}
 
 <div class="gal-head">
   <div class="wrap">
-    <h1>Gallery <span>/ past work</span></h1>
+    <h1>Gallery <span>/ real listings, re-imagined</span></h1>
+    <p class="lead">Pick a tier and scroll. Every shot is the actual listing photo on the left and what we handed the agent on the right.</p>
+  </div>
+</div>
+
+<!-- ---------- tabs ---------- -->
+<div class="tabbar-wrap">
+  <div class="tabbar" role="tablist" aria-label="Gallery categories">
+    <button class="tab" role="tab" id="tab-glow"     aria-controls="panel-glow"     aria-selected="true"  data-panel="glow">
+      <span class="t-kick">Tier One</span><span class="t-name">Lights-On Glow-Up</span></button>
+    <button class="tab" role="tab" id="tab-reno"     aria-controls="panel-reno"     aria-selected="false" data-panel="reno" tabindex="-1">
+      <span class="t-kick">Tier Two</span><span class="t-name">Artist's Concept Reno</span></button>
+    <button class="tab" role="tab" id="tab-makeover" aria-controls="panel-makeover" aria-selected="false" data-panel="makeover" tabindex="-1">
+      <span class="t-kick">Tier Three</span><span class="t-name">The Full Makeover</span></button>
+    <button class="tab" role="tab" id="tab-films"    aria-controls="panel-films"    aria-selected="false" data-panel="films" tabindex="-1">
+      <span class="t-kick">Add-on</span><span class="t-name">Listing Films</span></button>
   </div>
 </div>
 
 <div class="gal-wrap">
-  <div class="gal">
-    <div class="shot"><img src="assets/ba-front.jpg" alt="Before and after — front elevation, proposed modern build"></div>
-    <div class="shot"><img src="assets/ba-aerial.jpg" alt="Before and after — aerial view of the lot, proposed estate"></div>
-    <div class="shot"><img src="assets/ba-backyard.jpg" alt="Before and after — backyard resort concept"></div>
-    <div class="shot"><img src="assets/ba-coastal.jpg" alt="Before and after — coastal farmhouse renovation"></div>
+
+  <!-- ============ TIER ONE — LIGHTS-ON GLOW-UP ============ -->
+  <section class="panel" id="panel-glow" role="tabpanel" aria-labelledby="tab-glow">
+    <div class="panel-head">
+      <span class="pill">Tier One</span>
+      <h2>Lights-On Glow-Up</h2>
+      <p>Your real photo, perfected. Same house, same shot, same everything &mdash; just lamps glowing, a proper colour grade, a clean drive and a nice car out front. Near-real, so this one can headline the listing itself.</p>
+    </div>
+    <div class="stack">
+
+      <article class="item">
+        <div class="shot"><img src="assets/glow-ba.jpg" alt="Before and after — rancher front elevation, lights-on glow-up" loading="lazy"></div>
+        <div class="cap">
+          <h3>Rancher front elevation &mdash; West Palm Beach</h3>
+          <p>Every lamp switched on, midday flatness graded out, lawn and gravel drive cleaned up, and a car parked where a buyer expects one. Same roofline, same window count, nothing structural touched.</p>
+          <div class="meta"><span class="hot">Virtually enhanced</span><span>Same angle</span><span>Listing-ready</span><span>Same day</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ TIER TWO — ARTIST'S CONCEPT RENO ============ -->
+  <section class="panel" id="panel-reno" role="tabpanel" aria-labelledby="tab-reno" hidden>
+    <div class="panel-head">
+      <span class="pill">Tier Two</span>
+      <h2>Artist's Concept Reno</h2>
+      <p>The same house, fully renovated. Same bones, same footprint, same window count &mdash; new skin, new light. This is the one for the yard sign and the listing extras.</p>
+    </div>
+    <div class="stack">
+
+      <article class="item">
+        <div class="shot"><img src="assets/reno-ba-front.jpg" alt="Before and after — modern farmhouse renovation concept of the existing rancher" loading="lazy"></div>
+        <div class="cap">
+          <h3>Modern farmhouse reno &mdash; same bones</h3>
+          <p>Dark standing-seam roof, black-framed windows, a paver drive and fresh beds, shot at golden hour. The existing footprint down to the window count &mdash; renovated, not rebuilt.</p>
+          <div class="meta"><span class="hot">Artist's concept</span><span>Same footprint</span><span>Sign + listing</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="shot"><img src="assets/ba-coastal.jpg" alt="Before and after — coastal farmhouse renovation concept of the same rancher" loading="lazy"></div>
+        <div class="cap">
+          <h3>Coastal farmhouse &mdash; a second direction</h3>
+          <p>The same rancher taken a different way: board-and-batten siding, warm dusk light, layered palms and planting beds. Agents get to pick the look their buyers want.</p>
+          <div class="meta"><span class="hot">Artist's concept</span><span>Same footprint</span><span>Alternate look</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ TIER THREE — THE FULL MAKEOVER ============ -->
+  <section class="panel" id="panel-makeover" role="tabpanel" aria-labelledby="tab-makeover" hidden>
+    <div class="panel-head">
+      <span class="pill">Tier Three</span>
+      <h2>The Full Makeover</h2>
+      <p>What the lot could actually carry &mdash; a new-construction concept scaled to the land, dusk-lit, supercar in the drive. Same lot, same camera angle. This is the one that stops the car and pulls investors.</p>
+    </div>
+    <div class="stack">
+
+      <article class="item">
+        <div class="shot"><img src="assets/ba-front.jpg" alt="Before and after — proposed new construction on the same lot, front elevation" loading="lazy"></div>
+        <div class="cap">
+          <h3>The lot, rebuilt &mdash; front elevation</h3>
+          <p>Two storeys of glass and warm wood dropped onto the same lot, lit at dusk with a supercar on the paver drive. Identical camera position to the listing photo, so buyers read it instantly.</p>
+          <div class="meta"><span class="hot">Proposed new construction</span><span>Same lot &amp; angle</span><span>Print-ready</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="shot"><img src="assets/ba-aerial.jpg" alt="Before and after — aerial of the lot with proposed new construction" loading="lazy"></div>
+        <div class="cap">
+          <h3>From the air &mdash; the whole property</h3>
+          <p>The drone shot re-imagined: new build, resort pool, circular paver drive and re-planted grounds &mdash; with the neighbours, treeline and lot lines left exactly where they are.</p>
+          <div class="meta"><span class="hot">Proposed new construction</span><span>Real lot lines</span><span>Investor bait</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="shot"><img src="assets/ba-backyard.jpg" alt="Before and after — backyard resort concept" loading="lazy"></div>
+        <div class="cap">
+          <h3>Backyard resort</h3>
+          <p>The tired kidney pool becomes a full deck with loungers, uplit palms and glass across the back of the house. Same yard, same pines behind it.</p>
+          <div class="meta"><span class="hot">Proposed new construction</span><span>Same yard</span><span>Social-ready</span></div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="shot"><img src="assets/dream-sign.jpg" alt="Yard sign mockup — the concept render printed on a FOR SALE sign in front of the real house" loading="lazy"></div>
+        <div class="cap">
+          <h3>How it lands on the sign</h3>
+          <p>A mockup of the finished render on the FOR SALE sign, standing in the real front yard &mdash; with the &ldquo;artist's concept&rdquo; label printed right on it. This is what the drive-by sees.</p>
+          <div class="meta"><span class="hot">Yard-sign mockup</span><span>Label baked in</span><span>18&times;24&Prime; print-ready</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ FILMS ============ -->
+  <section class="panel" id="panel-films" role="tabpanel" aria-labelledby="tab-films" hidden>
+    <div class="panel-head">
+      <span class="pill">Add-on</span>
+      <h2>Listing Films</h2>
+      <p>Cinematic camera moves built from the photos you already have. No drone, no videographer, no shoot day &mdash; and under every clip we tell you exactly how many pictures went into it.</p>
+    </div>
+    <div class="stack films">
+
+      <article class="item">
+        <div class="shot"><video src="assets/film-asis.mp4" muted loop playsinline controls preload="metadata"></video></div>
+        <div class="cap">
+          <div class="madewith">Made from 1 picture</div>
+          <h3>Rancher push-in &mdash; exactly as it stands</h3>
+          <p>A slow push toward the front door in the property's real midday light. Nothing added, nothing landscaped, no colour changed &mdash; the listing as it is today, just moving.</p>
+          <div class="meta"><span class="hot">1 photo in</span><span>7 seconds</span><span>Reel &amp; listing ready</span></div>
+        </div>
+      </article>
+
+      <!-- BENCHED 2026-08-17: assets/film-golden.mp4 (golden-hour glam cut, also made from 1 picture)
+           drifts the wall colour white -> yellow, which fails the flip test. File is in assets/ and
+           ready to drop back in as a second <article> the moment a clean glam cut exists. -->
+
+    </div>
+  </section>
+
+  <div class="closer">
+    <a class="btn gold" href="index.html#contact">Get your listing done free</a>
+    <div class="fine">Previews are watermarked &amp; view-only &mdash; artist's-concept and virtually-enhanced labels are baked into every file we deliver</div>
   </div>
+
 </div>
 
+<footer class="site">
+  <div class="wrap">
+    <div>Divine Listings &mdash; artist-concept renders for real estate. Previews watermarked &amp; view-only.</div>
+    <div>Every render carries its label and ships with the original photo alongside it.</div>
+  </div>
+</footer>
+
 <script src="js/site.js"></script>
+<script>
+// ---------- gallery tabs ----------
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = {};
+  tabs.forEach(function (t) { panels[t.dataset.panel] = document.getElementById('panel-' + t.dataset.panel); });
+
+  function show(key, push) {
+    if (!panels[key]) return;
+    tabs.forEach(function (t) {
+      var on = t.dataset.panel === key;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      panels[t.dataset.panel].hidden = !on;
+    });
+    // pause any film left running in a panel the visitor walked away from
+    document.querySelectorAll('.panel[hidden] video').forEach(function (v) { v.pause(); });
+    if (push && history.replaceState) history.replaceState(null, '', '#' + key);
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t.dataset.panel, true); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus(); show(next.dataset.panel, true);
+    });
+  });
+
+  var start = (location.hash || '').replace('#', '');
+  show(panels[start] ? start : 'glow', false);
+})();
+</script>
 </body>
 </html>
