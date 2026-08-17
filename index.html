@@ -23,7 +23,10 @@ body{background:#1a1c1f}
 .hero-min h1{margin:0 auto;max-width:19ch}
 .hero-min p.sub{margin:18px auto 0;max-width:54ch;font-size:1.05rem;opacity:.92}
 .hero-demo{margin:46px auto 6px;max-width:1000px}
-.hero-demo-hint{text-align:center;color:var(--muted);font-size:.85rem;margin-top:12px;letter-spacing:.05em}
+.hero-demo figure img{aspect-ratio:4/3;object-fit:cover;width:100%;height:100%}
+.hero-demo figure{border-color:rgba(217,164,65,.22);border-radius:18px;box-shadow:0 22px 70px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03)}
+.hero-demo-hint{text-align:center;color:var(--muted);font-size:.85rem;margin-top:14px;letter-spacing:.05em}
+.fine-caption{text-align:center;margin-top:8px;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(154,161,171,.62)}
 .twins{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:42px 0 10px}
 @media(max-width:760px){.twins{grid-template-columns:1fr}}
 .twin{position:relative;display:block;height:340px;border-radius:18px;overflow:hidden;text-decoration:none;box-shadow:0 10px 40px rgba(0,0,0,.35);transition:transform .25s ease}
@@ -70,6 +73,7 @@ body{background:#1a1c1f}
       <figure class="vision"><img src="assets/dream-front.jpg" alt="Full Makeover concept — proposed new construction on the same lot"><figcaption>The vision</figcaption></figure>
     </div>
     <div class="hero-demo-hint">Same lot, same angle &mdash; re-imagined from the ground up. That's the Full Makeover.</div>
+    <div class="fine-caption">Artist's concept &mdash; proposed new construction, not current condition</div>
   </div>
 </section>
 
