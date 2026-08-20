@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Listings — See what it could be</title>
-<meta name="description" content="Stunning 'what it could be' concept renders that catch the eye of investors and drive-by buyers — for the yard sign and the online listing. Delivered same day.">
+<meta name="description" content="Photo glow-ups, artist's-concept renovation renders and cinematic walkthrough films for listing agents — built from your existing photos, delivered same day. First render of your own listing is free.">
 <meta property="og:title" content="Divine Listings — See what it could be">
-<meta property="og:description" content="Artist-concept renders of your actual listing — same angle, same bones, renovated. We specialize in drawing attention to your listing.">
+<meta property="og:description" content="Artist-concept renders of your actual listing — same angle, same bones, renovated. First render of your own listing is free.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://divinelistings.com/">
 <meta property="og:image" content="https://divinelistings.com/assets/ba-front.jpg">
@@ -23,8 +23,6 @@ body{background:#1a1c1f}
 .hero-min h1{margin:0 auto;max-width:19ch}
 .hero-min p.sub{margin:18px auto 0;max-width:54ch;font-size:1.05rem;opacity:.92}
 .hero-demo{margin:46px auto 6px;max-width:1000px}
-.hero-demo figure img{aspect-ratio:3/2;object-fit:cover;width:100%;height:100%}
-.hero-demo figure{border-color:rgba(217,164,65,.22);border-radius:18px;box-shadow:0 22px 70px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03)}
 .hero-demo-hint{text-align:center;color:var(--muted);font-size:.85rem;margin-top:14px;letter-spacing:.05em}
 .fine-caption{text-align:center;margin-top:8px;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(154,161,171,.62)}
 .twins{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:42px 0 10px}
@@ -33,11 +31,9 @@ body{background:#1a1c1f}
 .twin:hover{transform:translateY(-4px)}
 .twin .bgimg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s ease}
 .twin:hover .bgimg{transform:scale(1.04)}
-.twin .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,14,.12) 0%,rgba(5,8,14,.8) 100%)}
-.twin .lbl{position:absolute;left:0;right:0;bottom:34px;text-align:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:1.8rem;letter-spacing:.14em}
-.twin .sub2{position:absolute;left:0;right:0;bottom:12px;text-align:center;color:rgba(255,255,255,.75);font-size:.85rem}
-.twin.quotebg{background:radial-gradient(900px 420px at 30% 20%,#1d2b45 0%,#0b1322 70%)}
-.twin.quotebg .qmark{position:absolute;top:30px;left:0;right:0;text-align:center;font-size:100px;line-height:1;color:var(--gold-soft);font-family:var(--serif)}
+.twin .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,14,.12) 0%,rgba(5,8,14,.85) 100%)}
+.twin .lbl{position:absolute;left:0;right:0;bottom:44px;text-align:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:1.7rem;letter-spacing:.14em}
+.twin .sub2{position:absolute;left:16px;right:16px;bottom:16px;text-align:center;color:rgba(255,255,255,.75);font-size:.82rem;line-height:1.4}
 .simple-strip{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:22px;color:var(--ink);font-size:.95rem;opacity:.9}
 .simple-strip b{color:var(--gold-soft)}
 </style>
@@ -52,8 +48,8 @@ body{background:#1a1c1f}
       <a href="gallery.html">Gallery</a>
       <a href="#walkthroughs">Walkthroughs</a>
       <a href="#pricing">Pricing</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="#contact" class="cta">Get a free sample</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="cta"><span class="cta-full">Get my free sample</span><span class="cta-short">Free sample</span></a>
     </nav>
   </div>
 </header>
@@ -62,34 +58,71 @@ body{background:#1a1c1f}
   <div class="wrap">
     <div class="kicker">Divine Listings</div>
     <h1>We show buyers what your listing could be.</h1>
-    <p class="sub">Stunning "artist's concept" renders that catch the eye of investors and drive-by buyers. We specialize in drawing attention to your listing &mdash; delivered same day.</p>
+    <p class="sub">Photo glow-ups, artist's-concept renovations and cinematic walkthrough films for listing agents &mdash; built from the photos you already have, delivered same day. The first render of <em>your own listing</em> is free.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn gold" href="#contact">Get my free sample</a>
+      <a class="btn ghost" href="gallery.html">See the work</a>
+    </div>
+    <div class="friction-line">Free &middot; watermarked &middot; your actual listing &middot; same day &middot; no card, no signup</div>
   </div>
 </div>
 
 <section class="tight" style="padding-top:10px">
   <div class="wrap">
-    <div class="ba-pair hero-demo">
-      <figure><img src="assets/hero-before.jpg" alt="The listing today"><figcaption>Today</figcaption></figure>
-      <figure class="vision"><img src="assets/hero-vision.jpg" alt="Full Makeover concept — proposed new construction on the same lot"><figcaption>The vision</figcaption></figure>
+    <div class="hero-demo">
+      <div class="ba-slider" id="heroSlider">
+        <img class="ba-after" src="assets/hero-vision.jpg" alt="Full Makeover concept — proposed new construction on the same lot">
+        <img class="ba-before" src="assets/hero-before.jpg" alt="The listing today">
+        <div class="ba-divider" aria-hidden="true"><span class="ba-knob">&#8596;</span></div>
+        <span class="ba-tag ba-tag-b">Today</span>
+        <span class="ba-tag ba-tag-a">The vision</span>
+      </div>
     </div>
-    <div class="hero-demo-hint">Same lot, same angle &mdash; re-imagined from the ground up. That's the Full Makeover.</div>
+    <div class="hero-demo-hint">Drag the handle &mdash; same lot, same angle, re-imagined from the ground up. That's the Full Makeover.</div>
     <div class="fine-caption">Artist's concept &mdash; proposed new construction, not current condition</div>
   </div>
 </section>
 
-<section class="tight" style="padding-top:20px">
+<section id="how" class="tight">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <h2>How it works</h2>
+      <p>No shoot day, no drone, no contract. You already have everything we need.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Send your listing link</h3>
+        <p>Zillow, MLS, Realtor.com, your own site &mdash; any link or address works. That's genuinely all we need from you.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>We render your listing</h3>
+        <p>Same house, same angle, same window count &mdash; perfected, renovated, or fully re-imagined. Every concept image is labeled "artist's concept."</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Files land same day</h3>
+        <p>Your watermarked sample is free, yours to keep either way. Buy only when you want the clean, print-resolution files.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight" style="padding-top:0">
   <div class="wrap">
     <div class="twins">
       <a class="twin" href="gallery.html">
         <div class="bgimg" style="background-image:url('assets/hero-front.jpg')"></div>
         <div class="shade"></div>
         <div class="lbl">GALLERY</div>
-        <div class="sub2">All three tiers + the walkthroughs &mdash; before &amp; after, side by side</div>
+        <div class="sub2">All three tiers &amp; the films &mdash; before &amp; after</div>
       </a>
-      <a class="twin quotebg" href="testimonials.html">
-        <div class="qmark">&ldquo;</div>
-        <div class="lbl">TESTIMONIALS</div>
-        <div class="sub2">What agents say about the work</div>
+      <a class="twin" href="#walkthroughs">
+        <div class="bgimg" style="background-image:url('assets/coastal-front.jpg')"></div>
+        <div class="shade"></div>
+        <div class="lbl">THE FILM</div>
+        <div class="sub2">A cinematic walkthrough built from photos alone</div>
       </a>
     </div>
     <div class="simple-strip">
@@ -110,7 +143,7 @@ body{background:#1a1c1f}
     </div>
     <div class="cards">
       <div class="card">
-        <div class="thumb"><img src="assets/glow-front.jpg" alt="Lights-On Glow-Up — the real photo, perfected"></div>
+        <div class="thumb"><img src="assets/glow-front.jpg" alt="Lights-On Glow-Up — the real photo, perfected" loading="lazy"></div>
         <div class="body">
           <div class="tag">Tier One &mdash; New</div>
           <h3>Lights-On Glow-Up</h3>
@@ -119,7 +152,7 @@ body{background:#1a1c1f}
         </div>
       </div>
       <div class="card">
-        <div class="thumb"><img src="assets/reno-front.jpg" alt="Artist's concept renovation — same bones"></div>
+        <div class="thumb"><img src="assets/reno-front.jpg" alt="Artist's concept renovation — same bones" loading="lazy"></div>
         <div class="body">
           <div class="tag">Tier Two</div>
           <h3>Artist's Concept Reno</h3>
@@ -128,7 +161,7 @@ body{background:#1a1c1f}
         </div>
       </div>
       <div class="card">
-        <div class="thumb"><img src="assets/dream-front.jpg" alt="Full Makeover — proposed new construction concept"></div>
+        <div class="thumb"><img src="assets/dream-front.jpg" alt="Full Makeover — proposed new construction concept" loading="lazy"></div>
         <div class="body">
           <div class="tag">Tier Three</div>
           <h3>The Full Makeover</h3>
@@ -137,7 +170,7 @@ body{background:#1a1c1f}
         </div>
       </div>
       <div class="card">
-        <div class="thumb"><img src="assets/coastal-front.jpg" alt="Visual Walkthroughs — a cinematic film of your listing, from photos"></div>
+        <div class="thumb"><img src="assets/coastal-front.jpg" alt="Visual Walkthroughs — a cinematic film of your listing, from photos" loading="lazy"></div>
         <div class="body">
           <div class="tag">The Film</div>
           <h3>Visual Walkthroughs</h3>
@@ -149,23 +182,43 @@ body{background:#1a1c1f}
   </div>
 </section>
 
+<section id="walkthroughs" class="tight">
+  <a id="films"></a>
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <h2>Visual Walkthroughs</h2>
+      <p>A cinematic film of your listing, built entirely from its photos. Today &rarr; the renovation &rarr; the dream build &mdash; one story that stops the scroll. Films like this usually mean a $2,000+ production and a shoot day. This one needs neither.</p>
+    </div>
+    <div class="hero-demo" style="margin-top:30px">
+      <video src="assets/walkthrough-12944.mp4" poster="assets/walkthrough-poster.jpg" preload="none" controls playsinline style="width:100%;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.35)"></video>
+    </div>
+    <div class="hero-demo-hint">One real listing. Every frame generated from its photos. No drone, no videographer, no shoot day. &nbsp;<a href="gallery.html#films">See more &rarr;</a></div>
+    <div style="text-align:center;margin-top:26px">
+      <div style="font-family:var(--serif);font-size:1.6rem;color:var(--gold-soft);font-weight:700">$450 <span style="font-size:.9rem;color:var(--muted);font-family:var(--sans,inherit);font-weight:400">/ walkthrough film &mdash; clean, ready to post &nbsp;&middot;&nbsp; single-shot clip $250</span></div>
+      <a class="btn gold" style="margin-top:16px" href="mailto:julianogfantone@gmail.com?subject=Visual%20Walkthrough%20request%20%E2%80%94%20Divine%20Listings&body=Listing%20link%20(or%20address)%3A%0AYour%20name%3A%0AWhere%20will%20it%20run%20(reel%2Fsite%2Fboth)%3A">Get my free watermarked walkthrough</a>
+      <div class="hero-demo-hint" style="margin-top:14px">Concept footage generated from photos &mdash; not actual filmed video of the property. Renovation &amp; dream-build scenes are artist's concepts, labeled on-screen.</div>
+    </div>
+  </div>
+</section>
+
 <section id="pricing" class="tight">
   <div class="wrap">
     <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto">
       <h2>Simple pricing. Per listing.</h2>
-      <p>The sample is free either way. Pay only when you want the clean, print-resolution files.</p>
+      <p>A price cut costs your seller $10,000. This costs less than 1% of one commission check &mdash; and the sample is free either way.</p>
     </div>
     <div class="prices" style="max-width:1060px;margin:0 auto">
-      <div class="price">
-        <h3>Lights-On Glow-Up <span style="color:var(--gold);letter-spacing:normal">&#10022; new</span></h3>
-        <div class="amount">Intro<span> / priced with your free sample</span></div>
+      <div class="price feature">
+        <div class="pop-badge">Most popular</div>
+        <h3>Full Listing Pack</h3>
+        <div class="amount">$299<span> / listing</span></div>
         <ul>
-          <li>Your real listing photo, perfected</li>
-          <li>Near-real &mdash; can headline the listing</li>
-          <li>Virtually-enhanced label included</li>
-          <li>Delivered same day</li>
+          <li>Front, backyard &amp; aerial renders</li>
+          <li>Before/after composites for the listing &amp; social</li>
+          <li>Yard-sign mockup of your listing</li>
+          <li>All print-ready + originals included</li>
         </ul>
-        <a class="btn ghost" href="#contact">Start with a free sample</a>
+        <a class="btn gold" href="#contact">Get my free sample</a>
       </div>
       <div class="price">
         <h3>Sign Render</h3>
@@ -176,38 +229,61 @@ body{background:#1a1c1f}
           <li>Artist's-concept label baked in</li>
           <li>Delivered same day</li>
         </ul>
-        <a class="btn ghost" href="#contact">Start with a free sample</a>
+        <a class="btn ghost" href="#contact">Get my free sample</a>
       </div>
-      <div class="price feature">
-        <h3>Full Listing Pack</h3>
-        <div class="amount">$299<span> / listing</span></div>
+      <div class="price">
+        <h3>Lights-On Glow-Up <span style="color:var(--gold);letter-spacing:normal">&#10022; new</span></h3>
+        <div class="amount">Intro<span> / priced with your free sample</span></div>
         <ul>
-          <li>Front, backyard &amp; aerial renders</li>
-          <li>Before/after composites for the listing &amp; social</li>
-          <li>Yard-sign mockup of your listing</li>
-          <li>All print-ready + originals included</li>
+          <li>Your real listing photo, perfected</li>
+          <li>Near-real &mdash; can headline the listing</li>
+          <li>Virtually-enhanced label included</li>
+          <li>Delivered same day</li>
         </ul>
-        <a class="btn gold" href="#contact">Start with a free sample</a>
+        <a class="btn ghost" href="#contact">Get my free sample</a>
       </div>
+    </div>
+    <div class="hero-demo-hint" style="margin-top:24px">&#10022; Add the cinematic <a href="#walkthroughs">Visual Walkthrough film</a> to any package &mdash; $450 &nbsp;&middot;&nbsp; single-shot clip $250. No subscriptions, ever &mdash; pay per listing.</div>
+  </div>
+</section>
+
+<section id="honesty" class="tight">
+  <div class="wrap">
+    <div class="honesty-box">
+      <h2>We don't ask you to trust us.</h2>
+      <p>Send a listing link. We render <em>your actual listing</em> and email you the watermarked sample free &mdash; yours to keep either way. If it doesn't make you say "wow," delete the email and we'll never chase you.</p>
+      <p>And because your license matters more than our sale: every concept image carries an "artist's concept" label, every enhanced photo is disclosed as virtually enhanced, and every delivery includes the untouched original &mdash; so your MLS listing stays compliant on day one. We sell imagination, honestly.</p>
+      <p class="founder-line">Emails here are answered by the founder, same day. &mdash; Juliano, Divine Listings &middot; Palm Beach, FL</p>
     </div>
   </div>
 </section>
 
-<section id="walkthroughs" class="tight">
-  <a id="films"></a>
+<section id="faq" class="tight">
   <div class="wrap">
     <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto">
-      <h2>Visual Walkthroughs</h2>
-      <p>A cinematic film of your listing, built entirely from its photos. Today &rarr; the renovation &rarr; the dream build &mdash; one story that stops the scroll. For the listing reel, Instagram, and the yard-sign QR. For agents <em>and</em> short-term-rental hosts.</p>
+      <h2>Questions agents actually ask</h2>
     </div>
-    <div class="hero-demo" style="margin-top:30px">
-      <video src="assets/walkthrough-12944.mp4" autoplay muted loop playsinline controls style="width:100%;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.35)"></video>
-    </div>
-    <div class="hero-demo-hint">One real listing. Every frame generated from its photos. No drone, no videographer, no shoot day. &nbsp;<a href="gallery.html#films">See more &rarr;</a></div>
-    <div style="text-align:center;margin-top:26px">
-      <div style="font-family:var(--serif);font-size:1.6rem;color:var(--gold-soft);font-weight:700">$450 <span style="font-size:.9rem;color:var(--muted);font-family:var(--sans,inherit);font-weight:400">/ walkthrough film &mdash; clean, ready to post &nbsp;&middot;&nbsp; single-shot clip $250</span></div>
-      <a class="btn gold" style="margin-top:16px" href="mailto:julianogfantone@gmail.com?subject=Visual%20Walkthrough%20request%20%E2%80%94%20Divine%20Listings&body=Listing%20link%20(or%20address)%3A%0AYour%20name%3A%0AWhere%20will%20it%20run%20(reel%2Fsite%2Fboth)%3A">Get a free watermarked walkthrough of your listing</a>
-      <div class="hero-demo-hint" style="margin-top:14px">Concept footage generated from photos &mdash; not actual filmed video of the property. Renovation &amp; dream-build scenes are artist's concepts, labeled on-screen.</div>
+    <div class="faq-list">
+      <details>
+        <summary>Isn't this misleading to buyers?</summary>
+        <p>Not the way we do it. Renders are marketing concepts &mdash; like the architect's rendering on every new-construction sign. Every image is labeled "artist's concept" or "virtually enhanced," and you always receive the original photo alongside, so your MLS disclosure is ready out of the box. The concept sells the vision; the real photos stay honest.</p>
+      </details>
+      <details>
+        <summary>What's the catch on the free sample?</summary>
+        <p>None. It's watermarked, it's yours to keep, and there's no signup or card. We eat the cost because once you've seen your own listing transformed, we're betting you'll want the clean files. That's the whole business model.</p>
+      </details>
+      <details>
+        <summary>What do I have to send you?</summary>
+        <p>Just the listing link or address. We work from the photos already on the listing. For paid packs, full-resolution originals make the output even sharper &mdash; but the sample needs nothing from you.</p>
+      </details>
+      <details>
+        <summary>How fast is delivery?</summary>
+        <p>Same day. Send a link in the morning, get files before your evening showing. Films take up to 48 hours.</p>
+      </details>
+      <details>
+        <summary>Will the render actually look like my listing?</summary>
+        <p>Same bones, same angle, same window count &mdash; that's our quality bar. If an investor couldn't underwrite off it, it doesn't ship. Check the <a href="gallery.html">gallery</a>: every after sits next to its before.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -218,16 +294,20 @@ body{background:#1a1c1f}
       <h2>Send a listing link. That's it.</h2>
       <p>Paste the link, we render your actual listing and email you the watermarked sample free &mdash; keep it either way.</p>
     </div>
-    <a class="btn gold" href="mailto:julianogfantone@gmail.com?subject=Free%20sample%20request%20%E2%80%94%20Divine%20Listings&body=Listing%20link%3A%0A(or%20property%20address)%3A%0AYour%20name%20%2F%20brokerage%3A">Request a free sample</a>
+    <a class="btn gold" href="mailto:julianogfantone@gmail.com?subject=Free%20sample%20request%20%E2%80%94%20Divine%20Listings&body=Listing%20link%3A%0A(or%20property%20address)%3A%0AYour%20name%20%2F%20brokerage%3A">Get my free sample</a>
+    <div class="friction-line">Free &middot; watermarked &middot; same day &middot; no card, no signup</div>
+    <div class="hero-demo-hint" style="margin-top:18px">Button not opening your mail app? Email us directly: <b style="color:var(--gold-soft);user-select:text">julianogfantone@gmail.com</b> &mdash; just paste the listing link.</div>
   </div>
 </section>
 
 <footer class="site">
   <div class="wrap">
-    <div>Divine Listings &mdash; artist-concept renders for real estate. Previews watermarked &amp; view-only.</div>
+    <div>Divine Listings &mdash; artist-concept renders for real estate. Previews watermarked &amp; view-only. <a href="testimonials.html">Testimonials</a></div>
     <div>Every render carries an "artist's concept" label and ships with the original photo &mdash; MLS-safe by design.</div>
   </div>
 </footer>
+
+<a class="sticky-cta" href="#contact">Get my free sample</a>
 
 <script src="js/site.js"></script>
 </body>
