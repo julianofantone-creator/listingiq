@@ -15,6 +15,7 @@ h1{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:
 .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(200,167,94,.18)}
 .v{margin:0 0 30px}.vw{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--rule);background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 video{width:100%;max-height:78vh;background:#000;display:block}
+.v-tiktok .vw{max-width:400px}.v-tiktok video{max-height:none;aspect-ratio:9/16}
 .cap{color:var(--muted);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-top:10px}
 .snd{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(10,10,11,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ivory);border:1px solid rgba(242,237,228,.55);border-radius:999px;padding:14px 30px;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.55);transition:transform .2s ease,border-color .2s ease}
 .snd:hover{transform:translate(-50%,-50%) scale(1.03);border-color:var(--gold)}.snd:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.snd.off{display:none}
@@ -32,11 +33,18 @@ video{width:100%;max-height:78vh;background:#000;display:block}
 .ready{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(30px,5vw,42px);margin:6px 0 20px}
 .dls{display:flex;flex-direction:column;gap:10px;max-width:560px}
 .dl{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--rule);color:var(--ivory);text-decoration:none;padding:16px 20px;border-radius:8px;transition:border-color .2s ease}
+.how{max-width:560px;margin-top:16px;border:1px solid var(--rule);border-radius:8px;padding:0 18px;background:var(--panel)}
+.how summary{cursor:pointer;padding:14px 0;font-weight:500;color:var(--ivory);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.how summary::after{content:"+";color:var(--gold);font-family:"Cormorant Garamond",serif;font-size:24px}.how[open] summary::after{content:"–"}
+.how ol{margin:0 0 6px;padding:0 0 0 20px;color:var(--ivory)}.how li{margin:0 0 8px;font-size:15px}.how li b{color:var(--gold);font-weight:600}
+.how p{color:var(--muted);font-size:13px;margin:6px 0 14px}
 .dl:hover{border-color:var(--gold)}.dl-n{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dl-m{color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.snd,.btn,.dl{transition:none}.btn:hover{transform:none}.snd:hover{transform:translate(-50%,-50%)}}
-@media(max-width:480px){.w{padding:28px 16px 56px}.btn{padding:18px 18px}.btn-p{font-size:28px;padding-left:14px}}
+body{overflow-x:hidden}.w{min-width:0}
+@media(max-width:520px){.w{padding:28px 16px 56px}.btn{flex-direction:column;align-items:stretch;gap:12px;padding:18px 18px}
+.btn-p{font-size:30px;padding-left:0;border-left:0;padding-top:12px;border-top:1px solid rgba(17,17,17,.14)}.sub{font-size:15px}}
 </style></head>
-<body><div class="w"><p class="eyebrow">Divine Listings · a film of your listing</p><h1>14492 Equestrian Way</h1><p class="sub">Clean, full quality — thank you.</p><h2 class="ready">Your films are ready.</h2><div class="dls"><a class="dl" href="https://gofile.io/d/b3qU3gnU"><span class="dl-n">EQUESTRIAN_WAY_HEAVENBABY_TIKTOK.mp4</span><span class="dl-m">98 MB · download</span></a><a class="dl" href="https://gofile.io/d/b3qU3gnU"><span class="dl-n">EQUESTRIAN_WAY_HEAVENBABY_WIDE_4K.mp4</span><span class="dl-m">488 MB · download</span></a></div><div class="fine">Clean, un-watermarked, full quality. Save them to your computer or phone within 7 days — if a link ever expires, reply to our email and we send a fresh one.</div>
+<body><div class="w"><p class="eyebrow">Divine Listings · a film of your listing</p><h1>14492 Equestrian Way</h1><p class="sub">Clean, full quality — thank you.</p><h2 class="ready">Your films are ready.</h2><div class="dls"><a class="dl" href="https://github.com/julianofantone-creator/divine-films/releases/download/equestrian-way-wellington-2608261719/EQUESTRIAN_WAY_HEAVENBABY_TIKTOK.mp4" download><span class="dl-n">Vertical film — Reels / TikTok</span><span class="dl-m">98 MB · download</span></a><a class="dl" href="https://github.com/julianofantone-creator/divine-films/releases/download/equestrian-way-wellington-2608261719/EQUESTRIAN_WAY_HEAVENBABY_WIDE_4K.mp4" download><span class="dl-n">Widescreen 4K film</span><span class="dl-m">488 MB · download</span></a></div><details class="how"><summary>Saving to your iPhone — 3 taps</summary><ol><li>Tap a film above. It opens or lands in <b>Files → Downloads</b>.</li><li>Tap the <b>Share</b> icon (the box with the arrow).</li><li>Tap <b>Save Video</b>. It’s in your Photos — post it from there.</li></ol><p>On a computer: tap a film and it saves to your Downloads folder.</p></details><div class="fine">Clean, un-watermarked, full quality. The links don’t expire — if you ever need them again, reply to our email.</div>
 <div class="sig"><b>Divine Listings</b><span>Made from your own listing photos.</span></div></div>
 <script>
 (function(){var v=document.getElementById('v_wide'),b=document.getElementById('snd_wide');if(!v||!b)return;
