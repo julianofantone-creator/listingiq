@@ -37,18 +37,18 @@ transition:transform .18s ease}
 .btn-r{display:flex;align-items:center;gap:18px;flex-shrink:0}
 .btn-p{font-family:"Cormorant Garamond",Georgia,serif;font-size:34px;font-weight:600;line-height:1;color:#111;
 white-space:nowrap;font-variant-numeric:tabular-nums}
-/* THE CTA (Juliano's pick J1, 2026-08-28): azure — the exact blue an iPhone button uses, so the thumb knows it
-   before the brain does. Two lines: the promise, then the small print that makes it concrete. */
+/* THE CTA (Juliano's final pick K3, 2026-08-28): deep institutional navy + a lock and "Secure checkout".
+   What made the earlier versions read scammy was never the colour — it was the GRADIENT, the coloured glow and
+   the shouty bold+tracking. A paid button earns trust the way Amazon's does: one flat colour, sentence-case
+   words, roomy padding, no effects, no motion, and a visible safety cue. */
 .cta{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;white-space:nowrap;display:inline-flex;
-flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:13px 26px;border-radius:999px;
-background:linear-gradient(180deg,#3D9BFF 0%,#0A6CE8 100%);color:#fff;border:1px solid #6FB6FF;
-box-shadow:0 10px 26px rgba(10,108,232,.42);transition:all .18s ease}
-.btn:hover .cta{background:linear-gradient(180deg,#54A9FF 0%,#0B76FA 100%);
-box-shadow:0 14px 34px rgba(10,108,232,.55)}
-.cta-m{font-weight:700;font-size:15.5px;line-height:1;letter-spacing:.01em;display:flex;align-items:center;gap:8px}
-.cta-m .a{font-size:15px;transition:transform .18s ease}
-.btn:hover .cta-m .a{transform:translateX(3px)}
-.cta-s{font-size:10.5px;font-weight:600;letter-spacing:.09em;line-height:1;opacity:.82}
+flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:15px 28px;border-radius:8px;
+background:#12386E;color:#fff;border:1px solid #0D2C58;transition:background .15s ease}
+.btn:hover .cta{background:#164281}
+.cta-m{font-weight:600;font-size:16px;line-height:1.15;letter-spacing:0}
+.cta-s{font-size:11px;font-weight:500;letter-spacing:.02em;line-height:1.2;opacity:.85;
+display:flex;align-items:center}
+.cta-s svg{margin-right:5px;opacity:.9}
 .trust{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:14px 0 34px;letter-spacing:.04em}
 .fine{color:var(--muted);font-size:13px;margin-top:14px;max-width:56ch}
 .sig{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12.5px;margin-top:56px;padding-top:20px;border-top:1px solid var(--rule)}
@@ -85,8 +85,8 @@ white-space:nowrap;font-variant-numeric:tabular-nums}
 .btn-t{font-size:25px}.btn-p{font-size:30px}.cta{flex:1;padding:14px 18px}}
 @media(max-width:520px){.w{padding:28px 16px 108px}.sub{font-size:15px}}
 </style></head>
-<body><div class="w"><p class="eyebrow">Divine Listings · a film of your listing</p><h1>728 NE 17th</h1><p class="sub">728 NE 17th Terrace</p><a class="btn" href="https://buy.stripe.com/3cIaEX5wIdGbby6g2zg360c?client_reference_id=728-ne-17th-terrace-fort-lauderdale&prefilled_email=peter.barkin%40compass.com"><span class="btn-l"><span class="btn-k">Full-resolution versions ready now · one click</span><span class="btn-t">Take the watermark off</span></span><span class="btn-r"><span class="btn-p">$300</span><span class="cta"><span class="cta-m">Get 4K version<span class="a">&rarr;</span></span><span class="cta-s">Un-watermarked · full scale</span></span></span></a><div class="trust"><span>In your inbox within the hour</span><span>Both cuts, no watermark</span><span>Secure checkout by Stripe</span></div><p class="vol"><span class="dot"></span>Volume up — the song is half the film.</p><div class="v v-wide"><div class="vw"><video id="v_wide" controls playsinline preload="metadata" autoplay><source src="https://p.devinelistings.com/m/728-ne-17th-terrace-fort-lauderdale_wide.mp4" type="video/mp4"></video><button class=snd id=snd_wide type=button aria-label=Turn sound on><span class=snd-t>Volume up</span><span class=snd-s>tap to play with sound</span></button></div><div class="cap">Widescreen — for the listing page</div></div><div class="v v-tiktok"><div class="vw"><video id="v_tiktok" controls playsinline preload="metadata"><source src="https://p.devinelistings.com/m/728-ne-17th-terrace-fort-lauderdale_tiktok.mp4" type="video/mp4"></video></div><div class="cap">Vertical — for Reels / TikTok</div></div>
-<div class="sig"><b>Divine Listings</b><span>Made from your own listing photos · watermarked preview.</span></div></div><a class="sticky" href="https://buy.stripe.com/3cIaEX5wIdGbby6g2zg360c?client_reference_id=728-ne-17th-terrace-fort-lauderdale&prefilled_email=peter.barkin%40compass.com" aria-label="Get the 4K version — $300"><span class="sticky-l"><span class="sticky-k">Ready now</span><span class="sticky-t">Take the watermark off</span></span><span class="sticky-r"><span class="sticky-p">$300</span><span class="cta"><span class="cta-m">Get 4K version<span class="a">&rarr;</span></span><span class="cta-s">Un-watermarked · full scale</span></span></span></a>
+<body><div class="w"><p class="eyebrow">Divine Listings · a film of your listing</p><h1>728 NE 17th</h1><p class="sub">728 NE 17th Terrace</p><a class="btn" href="https://buy.stripe.com/3cIaEX5wIdGbby6g2zg360c?client_reference_id=728-ne-17th-terrace-fort-lauderdale&prefilled_email=peter.barkin%40compass.com"><span class="btn-l"><span class="btn-k">Full-resolution versions ready now · one click</span><span class="btn-t">Take the watermark off</span></span><span class="btn-r"><span class="btn-p">$300</span><span class="cta"><span class="cta-m">Get 4K version</span><span class="cta-s"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure checkout</span></span></span></a><div class="trust"><span>In your inbox within the hour</span><span>Both cuts, no watermark</span><span>Secure checkout by Stripe</span></div><p class="vol"><span class="dot"></span>Volume up — the song is half the film.</p><div class="v v-wide"><div class="vw"><video id="v_wide" controls playsinline preload="metadata" autoplay><source src="https://p.devinelistings.com/m/728-ne-17th-terrace-fort-lauderdale_wide.mp4" type="video/mp4"></video><button class=snd id=snd_wide type=button aria-label=Turn sound on><span class=snd-t>Volume up</span><span class=snd-s>tap to play with sound</span></button></div><div class="cap">Widescreen — for the listing page</div></div><div class="v v-tiktok"><div class="vw"><video id="v_tiktok" controls playsinline preload="metadata"><source src="https://p.devinelistings.com/m/728-ne-17th-terrace-fort-lauderdale_tiktok.mp4" type="video/mp4"></video></div><div class="cap">Vertical — for Reels / TikTok</div></div>
+<div class="sig"><b>Divine Listings</b><span>Made from your own listing photos · watermarked preview.</span></div></div><a class="sticky" href="https://buy.stripe.com/3cIaEX5wIdGbby6g2zg360c?client_reference_id=728-ne-17th-terrace-fort-lauderdale&prefilled_email=peter.barkin%40compass.com" aria-label="Get the 4K version — $300, secure checkout"><span class="sticky-l"><span class="sticky-k">Ready now</span><span class="sticky-t">Take the watermark off</span></span><span class="sticky-r"><span class="sticky-p">$300</span><span class="cta"><span class="cta-m">Get 4K version</span><span class="cta-s"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure checkout</span></span></span></a>
 <script>
 (function(){var v=document.getElementById('v_wide'),b=document.getElementById('snd_wide');if(!v||!b)return;
 function on(){v.muted=false;v.volume=1;try{v.currentTime=0}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){});b.classList.add('off');}
