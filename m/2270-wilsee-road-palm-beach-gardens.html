@@ -10,18 +10,14 @@
 <!-- og:site_name is deliberately ABSENT. With it, the bubble leads with "Divine Listings" and the agent
      reads a company mailshot before they read anything else. Without it, the card leads with the ADDRESS --
      their own house -- which is what made the by-hand links work. The brand can wait until they've watched. -->
-<meta property="og:type" content="video.other">
+<!-- DELIBERATELY MINIMAL (2026-09-02). The first version carried og:video pointing at the 10 MB film, so
+     iMessage refused to fetch it and showed "Tap to load preview" -- an extra step between the agent and the
+     house, on the one bubble that has to feel effortless. og:image (179 KB) was no better on cellular.
+     Juliano's own by-hand sends, the ones that worked, rendered as title + domain + compass icon and nothing
+     else. That card builds instantly because there is nothing to download. So: the address, and stop. -->
+<meta property="og:type" content="website">
 <meta property="og:title" content="2270 WILSEE Road">
-<meta property="og:description" content="A short cinematic film of 2270 WILSEE Road, made from the listing photos.">
 <meta property="og:url" content="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens.html">
-<meta property="og:image" content="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_wide_poster.jpg">
-<meta property="og:image:width" content="1280"><meta property="og:image:height" content="720">
-<meta property="og:video" content="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_wide.mp4">
-<meta property="og:video:type" content="video/mp4">
-<meta property="og:video:width" content="1280"><meta property="og:video:height" content="720">
-<meta name="twitter:card" content="player">
-<meta name="twitter:title" content="2270 WILSEE Road">
-<meta name="twitter:image" content="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_wide_poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
 <style>
@@ -114,10 +110,24 @@ white-space:nowrap;font-variant-numeric:tabular-nums}
 <body><div class="w"><p class="eyebrow">Divine Listings · a film of your listing</p><h1>2270 WILSEE Road</h1><p class="sub">Watermarked previews — the clean films are one tap below.</p><p class="vol"><span class="dot"></span>Volume up — the song is half the film.</p><div class="v v-wide"><div class="vw"><video id="v_wide" controls playsinline preload="metadata" autoplay poster="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_wide_poster.jpg"><source src="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_wide.mp4" type="video/mp4"></video><button class=snd id=snd_wide type=button aria-label=Turn sound on><span class=snd-t>Volume up</span><span class=snd-s>tap to play with sound</span></button></div><div class="cap">Widescreen — for the listing page</div></div><a class="btn" href="https://buy.stripe.com/3cIaEX5wIdGbby6g2zg360c?client_reference_id=2270-wilsee-road-palm-beach-gardens&prefilled_email=vmarotta%40marottarealty.com"><span class="btn-l"><span class="btn-k">Full-resolution versions ready now · one click</span><span class="btn-t">Take the watermark off</span></span><span class="btn-r"><span class="btn-p">$300</span><span class="cta"><span class="cta-m">Get 4K version</span><span class="cta-s"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure checkout</span></span></span></a><div class="trust"><span>In your inbox within the hour</span><span>Both cuts, no watermark</span><span>Secure checkout by Stripe</span></div><div class="v v-tiktok"><div class="vw"><video id="v_tiktok" controls playsinline preload="metadata" poster="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_tiktok_poster.jpg"><source src="https://p.devinelistings.com/m/2270-wilsee-road-palm-beach-gardens_tiktok.mp4" type="video/mp4"></video></div><div class="cap">Vertical — for Reels / TikTok</div></div>
 <div class="sig"><b>Divine Listings</b><span>Made from your own listing photos · watermarked preview.</span></div></div><a class="sticky" href="https://buy.stripe.com/3cIaEX5wIdGbby6g2zg360c?client_reference_id=2270-wilsee-road-palm-beach-gardens&prefilled_email=vmarotta%40marottarealty.com" aria-label="Get the 4K version — $300, secure checkout"><span class="sticky-l"><span class="sticky-k">Ready now</span><span class="sticky-t">Take the watermark off</span></span><span class="sticky-r"><span class="sticky-p">$300</span><span class="cta"><span class="cta-m">Get 4K version</span><span class="cta-s"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure checkout</span></span></span></a>
 <script>
-(function(){var v=document.getElementById('v_wide'),b=document.getElementById('snd_wide');if(!v||!b)return;
-function on(){v.muted=false;v.volume=1;try{v.currentTime=0}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){});b.classList.add('off');}
-b.addEventListener('click',on);v.addEventListener('volumechange',function(){if(!v.muted&&v.volume>0)b.classList.add('off');});
+/* SOUND ON, AS EARLY AS THE BROWSER PERMITS (2026-09-02).
+   No browser will autoplay with sound before the visitor has interacted with the page -- Chrome and Safari
+   both block it outright, and there is no flag or trick that changes that. So we do the next best thing and
+   we do it aggressively: try sound first; if blocked, start muted, and then unmute on the FIRST interaction
+   of any kind -- a tap anywhere, a scroll, a keypress, even the pointer moving across the page. Previously
+   they had to find and press the badge. Now touching the screen at all is enough, which on a phone happens
+   within a second of landing. Restarts from 0 on unmute so the song is heard from the first hit. */
+(function(){var v=document.getElementById('v_wide'),b=document.getElementById('snd_wide');if(!v)return;
+var done=false;
+function on(){if(done)return;done=true;v.muted=false;v.volume=1;try{v.currentTime=0}catch(e){}
+var p=v.play();if(p&&p.catch)p.catch(function(){});if(b)b.classList.add('off');off();}
+var EV=['pointerdown','touchstart','click','keydown','scroll','wheel','pointermove'];
+function off(){EV.forEach(function(e){window.removeEventListener(e,on,true);});}
+EV.forEach(function(e){window.addEventListener(e,on,{capture:true,passive:true});});
+if(b)b.addEventListener('click',on);
+v.addEventListener('volumechange',function(){if(!v.muted&&v.volume>0&&b)b.classList.add('off');});
 v.muted=false;var p=v.play();
-if(p&&p.then){p.then(function(){b.classList.add('off');}).catch(function(){v.muted=true;var q=v.play();if(q&&q.catch)q.catch(function(){});});}
+if(p&&p.then){p.then(function(){done=true;off();if(b)b.classList.add('off');})
+.catch(function(){v.muted=true;var q=v.play();if(q&&q.catch)q.catch(function(){});});}
 })();
 </script></body></html>
