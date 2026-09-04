@@ -115,4 +115,39 @@ v.muted=false;var p=v.play();
 if(p&&p.then){p.then(function(){done=true;off();if(b)b.classList.add('off');})
 .catch(function(){v.muted=true;var q=v.play();if(q&&q.catch)q.catch(function(){});});}
 })();
-</script></body></html>
+</script><!-- DIVINE TRACKER BEACON — injected into every player page by mms.py when TRACKER_URL is set.
+     https://divine-tracker.divinelistings.workers.dev is replaced with the Worker's base URL (no trailing slash).
+     Wrapped in try/catch end to end: if anything here throws, the film still plays. -->
+<script>(function(){
+try{
+  var T="https://divine-tracker.divinelistings.workers.dev";
+  if(!T) return;
+  var p=location.pathname, m=p.match(/\/m\/([^/]+)\.html$/);
+  var slug=m?m[1]:p.replace(/^.*\//,""), c=new URLSearchParams(location.search).get("c")||"";
+  var sent={};
+  function ev(k){
+    if(sent[k]) return; sent[k]=1;
+    try{
+      var b=JSON.stringify({slug:slug,kind:k,c:c});
+      if(navigator.sendBeacon){ navigator.sendBeacon(T+"/e", new Blob([b],{type:"application/json"})); }
+      else{ fetch(T+"/e",{method:"POST",body:b,keepalive:true,mode:"no-cors"}); }
+    }catch(e){}
+  }
+  // 'view' after 2s: a human is still here, a link scanner is long gone.
+  setTimeout(function(){ ev("view"); },2000);
+  function wire(){
+    var vs=document.getElementsByTagName("video");
+    for(var i=0;i<vs.length;i++){ (function(v){
+      v.addEventListener("play",function(){ ev("play"); });
+      // a film watched WITH SOUND is the strongest signal short of a written reply
+      v.addEventListener("volumechange",function(){ if(!v.muted && v.volume>0) ev("unmute"); });
+    })(vs[i]); }
+    var as=document.getElementsByTagName("a");
+    for(var j=0;j<as.length;j++){ (function(a){
+      if((a.href||"").indexOf("buy.stripe.com")>-1){ a.addEventListener("click",function(){ ev("checkout"); }); }
+    })(as[j]); }
+  }
+  if(document.readyState==="loading"){ document.addEventListener("DOMContentLoaded",wire); } else { wire(); }
+}catch(e){}
+})();</script>
+</body></html>
