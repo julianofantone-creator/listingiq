@@ -117,14 +117,32 @@ if(p&&p.then){p.then(function(){done=true;off();if(b)b.classList.add('off');})
 })();
 </script><!-- DIVINE TRACKER BEACON — injected into every player page by mms.py when TRACKER_URL is set.
      https://divine-tracker.divinelistings.workers.dev is replaced with the Worker's base URL (no trailing slash).
-     Wrapped in try/catch end to end: if anything here throws, the film still plays. -->
+     Wrapped in try/catch end to end: if anything here throws, the film still plays.
+
+     THE AUTOPLAY TRAP (fixed 2026-09-05). The player page unmutes and plays ITSELF on load:
+         v.muted=false; var p=v.play();
+     which fires `volumechange` and `play` within ~50ms of every single page open. The first version of
+     this beacon reported those as `unmute` and `play` — so the two signals I called "the strongest short
+     of a written reply" fired for nobody, on every hit, forever. The first two events ever recorded were
+     exactly that: a view and an "unmute" in the same second, with no play in between.
+     So: ignore anything in the first ENGAGE_MS, and anything before a real human gesture. What survives
+     is a person who pressed play or turned the sound on themselves. -->
 <script>(function(){
 try{
   var T="https://divine-tracker.divinelistings.workers.dev";
   if(!T) return;
   var p=location.pathname, m=p.match(/\/m\/([^/]+)\.html$/);
   var slug=m?m[1]:p.replace(/^.*\//,""), c=new URLSearchParams(location.search).get("c")||"";
-  var sent={};
+  var sent={}, t0=Date.now(), gestured=false;
+  var ENGAGE_MS=2500;   // the page's own autoplay happens in ~50ms; a human takes seconds
+
+  ["pointerdown","touchstart","click","keydown","wheel"].forEach(function(e){
+    try{ window.addEventListener(e,function(){ gestured=true; },{capture:true,passive:true}); }catch(_){}
+  });
+  // a media event only counts as a PERSON once they've touched the page, or enough time has passed that
+  // the page's own load-time autoplay cannot be what caused it
+  function human(){ return gestured || (Date.now()-t0) > ENGAGE_MS; }
+
   function ev(k){
     if(sent[k]) return; sent[k]=1;
     try{
@@ -133,14 +151,18 @@ try{
       else{ fetch(T+"/e",{method:"POST",body:b,keepalive:true,mode:"no-cors"}); }
     }catch(e){}
   }
-  // 'view' after 2s: a human is still here, a link scanner is long gone.
+  // 'view' after 2s: a human is still here, a link scanner is long gone. This one is honest as-is --
+  // it only measures that a real browser stayed on the page, and it makes no claim about intent.
   setTimeout(function(){ ev("view"); },2000);
+
   function wire(){
     var vs=document.getElementsByTagName("video");
     for(var i=0;i<vs.length;i++){ (function(v){
-      v.addEventListener("play",function(){ ev("play"); });
-      // a film watched WITH SOUND is the strongest signal short of a written reply
-      v.addEventListener("volumechange",function(){ if(!v.muted && v.volume>0) ev("unmute"); });
+      v.addEventListener("play",function(){ if(human()) ev("play"); });
+      // sound ON, by a person, on a video that is actually running
+      v.addEventListener("volumechange",function(){
+        if(human() && !v.muted && v.volume>0 && !v.paused) ev("unmute");
+      });
     })(vs[i]); }
     var as=document.getElementsByTagName("a");
     for(var j=0;j<as.length;j++){ (function(a){
@@ -149,5 +171,6 @@ try{
   }
   if(document.readyState==="loading"){ document.addEventListener("DOMContentLoaded",wire); } else { wire(); }
 }catch(e){}
-})();</script>
+})();
+</script>
 </body></html>
